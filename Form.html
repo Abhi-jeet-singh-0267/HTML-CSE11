@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form action="./Response.html" name="BIODATA" target="_BLANK" method="get">
+<fieldset>
+    <legend>BIODATA</legend>
+    <label for="Name">NAME:</label>
+    <input type="text" id="Name" Name="name" placeholder="Enter your name" required>
+    <br></br>
+    <lable for="Pass">Password:</lable>
+    <input type="Password" id="Pass" name="pass" placeholder="Enter your password" required>
+    <br></br>
+    <lable for="DOB">DOB:</lable>
+    <input type="date"id="dob"name="dob"required>
+        <br></br>
+    <lable for="email">Email:</lable>
+    <input type="email"id="email"name="eamil" required>
+    <br></br>
+    <lable for="tel">Phone:</lable>
+    <input type="tel" id="tel"name="tel" required>
+    <br></br>
+    <lable for="add">Address:</lable>
+    <textarea name="text" id="add"></textarea>
+    <br></br>
+    <lable for="gender">Gender:</lable>
+    <input type="radio" id="Male" name="Male">
+    <lable for="Male"></lable> Male</lable>
+    <input type="radio"id="Female" name="Female">
+    <lable type="Female"></lable>Female</lable>
+    <br></br>
+    <lable for="check">Vehicles u have:</lable>
+    <input type="checkbox"id="check"name="vehicle1">
+    <lable for="check">Car</lable>
+    <input type="checkbox"id="check"name="vehical2">
+    <lable for="check">Bike</lable>
+    <br></br>
+    <lable for="select">select your programming lauguage</lable>
+    <select name="select"id="select">
+        <option value="">Select your language</option>
+        <optgroup label="Programming languages">
+        <option value="c">C</option>
+        <option value="c++">C++</option>
+        <option value="Java">Java</option>
+        <option value="Javascript">Javascript</option>
+        </optgroup>
+        <optgroup label="Frontend languages">
+            <option value="HTML">HTML</option>
+            <OPTION value="CSS">CSS</OPTION>
+            </optgroup>
+        </select>
+        <br></br>
+        <lable for="url">URL:</lable>
+        <input type="url" id="url" name="url"
+        placeholder="Enter your URL" required>
+        <br></br>
+        <lable for="file">File upload:</lable>
+        <input type="file" id="file" name="file required">
+        <br></br>
+        <lable for="attempt">Attempt:</lable>
+        <input type="numbre" id="attempt" name="attempt" min="1" max="10" required>
+        <br></br>
+        <lable for="appoint">Appointment:</lable>
+        <input type="time" id="appoint" name="appoint" required><br></br>
+        <input type="Submit">
+        <input type="reset">
+    </fieldset>
+    </form>
+</body>
+</html>
