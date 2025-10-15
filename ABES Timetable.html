@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE-11(CLASS TIMETABLE)</title>
+ <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles and print optimization */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-print-color-adjust: exact; /* For better print colors */
+            print-color-adjust: exact;
+        }
+        .timetable-cell {
+            @apply border border-gray-300 p-1 text-xs sm:text-sm text-center font-semibold leading-tight flex flex-col justify-center items-center h-20;
+            cursor: default; /* Remove pointer on hover */
+        }
+        .header-cell {
+            @apply bg-gray-100 font-bold uppercase text-gray-700;
+        }
+        .day-cell {
+            @apply bg-blue-50 text-blue-800 font-extrabold;
+        }
+
+        /* --- PRINT STYLES --- */
+        @media print {
+ body {
+                @apply bg-white text-black text-[10pt] m-0 p-0;
+            }
+            .print-hidden {
+                display: none !important;
+            }
+            .timetable-cell, .header-cell, .day-cell {
+                @apply border border-gray-600 p-1 text-black bg-white shadow-none h-16;
+                /* Force background and text color to be print-friendly */
+                background-color: white !important;
+                color: black !important;
+            }
+            .timetable-cell .code {
+                font-weight: bold;
+            }
+            .timetable-cell .details {
+                font-size: 8pt;
+            }
+            .key-table th, .key-table td {
+                @apply border border-gray-600 p-1 text-[8pt];
+            }
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+ table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-4 sm:p-8">
+
+    <div class="container mx-auto max-w-6xl bg-white shadow-xl rounded-xl overflow-hidden">
+        
+        <!-- Header Section -->
+        <header class="p-4 sm:p-6 bg-blue-800 text-white rounded-t-xl">
+            <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider">ABES Engineering College, Ghaziabad</h1>
+            <p class="text-sm sm:text-base font-medium">Department: Computer Science & Engineering | Time Table</p>
+            <div class="flex justify-between text-xs sm:text-sm mt-2">
+                <span class="font-light">Course/Section: B.Tech/I/CSE-11</span>
+                <span class="font-light">W.E.F.: 12.10.2025</span>
+            </div>
+        </header>
+
+ <!-- Time Table -->
+        <div class="p-2 sm:p-4">
+            <h2 class="text-lg font-bold mb-3 text-gray-800">Section 2025-26, ODD Semester</h2>
+            <table class="w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="timetable-cell header-cell w-1/12" rowspan="2">Time<br>Day</th>
+                        <th class="timetable-cell header-cell" colspan="5">Forenoon (10:40 - 01:10)</th>
+                        <th class="timetable-cell header-cell" colspan="4">Afternoon (01:10 - 04:30)</th>
+                    </tr>
+                    <tr>
+                        <!-- I -->
+                        <th class="timetable-cell header-cell">I<div class="font-normal text-[10px]">08:50 - 09:40</div></th>
+                        <!-- II -->
+                        <th class="timetable-cell header-cell">II<div class="font-normal text-[10px]">09:40 - 10:30</div></th>
+                        <!-- III -->
+                        <th class="timetable-cell header-cell">III<div class="font-normal text-[10px]">10:40 - 11:30</div></th>
+                        <!-- IV -->
+                        <th class="timetable-cell header-cell">IV<div class="font-normal text-[10px]">11:30 - 12:20</div></th>
+                        <!-- V -->
+                        <th class="timetable-cell header-cell">V<div class="font-normal text-[10px]">12:20 - 01:10</div></th>
+                        <!-- VI -->
+    <th class="timetable-cell header-cell">VI<div class="font-normal text-[10px]">01:10 - 02:00</div></th>
+                        <!-- VII -->
+                        <th class="timetable-cell header-cell">VII<div class="font-normal text-[10px]">02:00 - 02:50</div></th>
+                        <!-- VIII -->
+                        <th class="timetable-cell header-cell">VIII<div class="font-normal text-[10px]">02:50 - 03:40</div></th>
+                        <!-- IX -->
+                        <th class="timetable-cell header-cell">IX<div class="font-normal text-[10px]">03:40 - 04:30</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- MONDAY -->
+                    <tr>
+                        <td class="timetable-cell day-cell">Monday</td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS103</span>
+                            <span class="details">(MG), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS102</span>
+                            <span class="details">(MR), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-yellow-100 hover:bg-yellow-200">
+                            <span class="code">25CS101</span>
+                            <span class="details">(AKS), RJ-205</span>
+                        </td>
+ <td class="timetable-cell bg-yellow-100 hover:bg-yellow-200">
+                            <span class="code">25CS101</span>
+                            <span class="details">(AKS), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS101</span>
+                            <span class="details">(PG), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-blue-100 hover:bg-blue-200">
+                            <span class="code">25EL101</span>
+                            <span class="details">(PG), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-blue-100 hover:bg-blue-200">
+                            <span class="code">25EL151</span>
+                            <span class="details">(PG,VV), BASEMENT</span>
+                        </td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                    </tr>
+                    <!-- TUESDAY -->
+                    <tr>
+                        <td class="timetable-cell day-cell">Tuesday</td>
+                        <td class="timetable-cell bg-orange-100 hover:bg-orange-200">
+                            <span class="code">25AI101</span>
+                            <span class="details">(SK), RJ-207</span>
+                        </td>
+                        <td class="timetable-cell bg-blue-100 hover:bg-blue-200">
+                            <span class="code">25EL101</span>
+                            <span class="details">(PG), RJ-207</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS101</span>
+ <span class="details">(SK), RJ-207</span>
+                        </td>
+                        <td class="timetable-cell bg-orange-100 hover:bg-orange-200">
+                            <span class="code">25AI101</span>
+                            <span class="details">(SK), RJ-207</span>
+                        </td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                        <td class="timetable-cell bg-yellow-100 hover:bg-yellow-200">
+                            <span class="code">25AS151</span>
+                            <span class="details">(MS), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS102</span>
+                            <span class="details">(MR), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-orange-100 hover:bg-orange-200">
+                            <span class="code">25AI101</span>
+                            <span class="details">(RS), RJ-207</span>
+                        </td>
+                    </tr>
+                    <!-- WEDNESDAY -->
+                    <tr>
+                        <td class="timetable-cell day-cell">Wednesday</td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS101</span>
+                            <span class="details">(SK), RJ-206</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS102</span>
+                            <span class="details">(MR), RJ-206</span>
+   </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS102</span>
+                            <span class="details">(RS), RJ-206</span>
+                        </td>
+                        <td class="timetable-cell bg-blue-100 hover:bg-blue-200">
+                            <span class="code">25EL101</span>
+                            <span class="details">(PG), RJ-206</span>
+                        </td>
+                        <td class="timetable-cell bg-red-100 text-red-800 font-extrabold" rowspan="1">
+                            LUNCH
+                        </td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                        <td class="timetable-cell bg-indigo-100 hover:bg-indigo-200">
+                            <span class="code">25VA151</span>
+                            <span class="details">(JKC), RJ-204</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS102</span>
+                            <span class="details">(MR), RJ-204</span>
+                        </td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                    </tr>
+                    <!-- THURSDAY -->
+                    <tr>
+                        <td class="timetable-cell day-cell">Thursday</td>
+                        <td class="timetable-cell bg-orange-100 hover:bg-orange-200">
+                            <span class="code">25AI101</span>
+   <span class="details">(RS), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS101</span>
+                            <span class="details">(SK), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-orange-100 hover:bg-orange-200">
+                            <span class="code">25AI101</span>
+                            <span class="details">(RS), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS102</span>
+                            <span class="details">(MR), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                        <td class="timetable-cell bg-purple-100 hover:bg-purple-200">
+                            <span class="code">Mentor Mentee</span>
+                            <span class="details">(MR,RS), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-blue-100 hover:bg-blue-200">
+                            <span class="code">25EL101</span>
+                            <span class="details">(PG), RJ-205</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS101</span>
+                            <span class="details">(SK,YT), KC-310</span>
+                        </td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                    </tr>
+                    <!-- FRIDAY -->
+                    <tr>
+                        <td class="timetable-cell day-cell">Friday</td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                        <td class="timetable-cell bg-red-100 hover:bg-re     <span class="code">25ME152</span>
+                            <span class="details">(AAD,MM), RJ-109</span>
+                        </td>
+                        <td class="timetable-cell bg-yellow-100 hover:bg-yellow-200">
+                            <span class="code">25CS101</span>
+                            <span class="details">(AKS), RJ-206</span>
+                        </td>
+                        <td class="timetable-cell bg-yellow-100 hover:bg-yellow-200">
+                            <span class="code">25CS101</span>
+                            <span class="details">(AKS), RJ-206</span>
+                        </td>
+                        <td class="timetable-cell bg-gray-50"></td>
+                        <td class="timetable-cell bg-blue-100 hover:bg-blue-200">
+                            <span class="code">25EL101</span>
+                            <span class="details">(PG), RJ-206</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS102</span>
+                            <span class="details">(MR), RJ-206</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS101</span>
+                            <span class="details">(SK), RJ-206</span>
+                        </td>
+                        <td class="timetable-cell bg-green-100 hover:bg-green-200">
+                            <span class="code">25AS103</span>
+                            <span class="details">(MG), RJ-206</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+ <!-- Subject and Faculty Key -->
+        <div class="p-4 sm:p-6 bg-gray-100 rounded-b-xl mt-4">
+            <h3 class="text-lg font-bold mb-3 text-gray-800 border-b pb-2">Academic & Subject Key</h3>
+            
+            <table class="key-table w-full border-collapse border border-gray-300 mb-4">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="p-2 border border-gray-300 w-1/12 text-sm font-semibold">SUBCODE</th>
+                        <th class="p-2 border border-gray-300 w-3/12 text-sm font-semibold">SUB/LAB NAME</th>
+                        <th class="p-2 border border-gray-300 w-2/12 text-sm font-semibold">FACULTY (ABBR.)</th>
+                        <th class="p-2 border border-gray-300 w-1/12 text-sm font-semibold">LABCODE</th>
+                        <th class="p-2 border border-gray-300 w-3/12 text-sm font-semibold">LAB NAME</th>
+                        <th class="p-2 border border-gray-300 w-2/12 text-sm font-semibold">FACULTY (ABBR.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-white">
+                        <td class="p-2 border border-gray-300 text-xs">25AS101</td>
+                        <td class="p-2 border border-gray-300 text-xs">Applied Physics</td>
+                        <td class="p-2 border border-gray-300 text-xs">Dr. (Smt) Satyendra Kumar (SK)</td>
+                        <td class="p-2 border border-gray-300 text-xs">25CS151</td>
+  <td class="p-2 border border-gray-300 text-xs">Data Structure Lab</td>
+                        <td class="p-2 border border-gray-300 text-xs">Ms. Akshita Sharma (AKS)</td>
+                    </tr>
+                    <tr class="hover:bg-white">
+                        <td class="p-2 border border-gray-300 text-xs">25AS102</td>
+                        <td class="p-2 border border-gray-300 text-xs">Basics of Electrical Engg.</td>
+                        <td class="p-2 border border-gray-300 text-xs">Mr. Pankaj Gupta (PG)</td>
+                        <td class="p-2 border border-gray-300 text-xs">25AS151</td>
+                        <td class="p-2 border border-gray-300 text-xs">Physics Lab</td>
+                        <td class="p-2 border border-gray-300 text-xs">Prof. (Dr.) Satyendra Kumar (SK)</td>
+                    </tr>
+                    <tr class="hover:bg-white">
+                        <td class="p-2 border border-gray-300 text-xs">25AS103</td>
+                        <td class="p-2 border border-gray-300 text-xs">Fundamentals of Linear Algebra and Statistics</td>
+                        <td class="p-2 border border-gray-300 text-xs">Dr. Mohit Rastogi (MR)</td>
+                        <td class="p-2 border border-gray-300 text-xs">25EL151</td>
+                        <td class="p-2 border border-gray-300 text-xs">Basic Electrical Engg. Lab</td>
+                        <td class="p-2 border border-gray-300 text-xs">Dr. Veena Tivari (VT) & Others</td>
+                    </tr>
+                    <tr class="hover:bg-white">
+                        <td class="p-2 border border-gray-300 text-xs">25CS101</td>
+                        <td class="p-2 border border-gray-300 text-xs">Data Structure</td>
+                        <td class="p-2 border border-gray-300 text-xs">Ms. Akshita Sharma (AKS)</td>
+    <td class="p-2 border border-gray-300 text-xs">25ME152</td>
+                        <td class="p-2 border border-gray-300 text-xs">CAD Lab</td>
+                        <td class="p-2 border border-gray-300 text-xs">Dr. Ashish Dixit (AD) & Others</td>
+                    </tr>
+                    <tr class="hover:bg-white">
+                        <td class="p-2 border border-gray-300 text-xs">25CS103</td>
+                        <td class="p-2 border border-gray-300 text-xs">Environmental Engg. & Sustainability</td>
+                        <td class="p-2 border border-gray-300 text-xs">Dr. Monica Goyanka (MG)</td>
+                        <td class="p-2 border border-gray-300 text-xs">25VA151</td>
+                        <td class="p-2 border border-gray-300 text-xs">Web Designing Workshop</td>
+                        <td class="p-2 border border-gray-300 text-xs">Mr. Jitendra Kumar Chaube (JKC) & Others</td>
+                    </tr>
+                    <tr class="hover:bg-white">
+                        <td class="p-2 border border-gray-300 text-xs">25AI101</td>
+                        <td class="p-2 border border-gray-300 text-xs">Essentials of AI</td>
+                        <td class="p-2 border border-gray-300 text-xs">Mr. Rahul Singh (RS)</td>
+                        <td class="p-2 border border-gray-300 text-xs"></td>
+                        <td class="p-2 border border-gray-300 text-xs">Mentor Mentee</td>
+                        <td
